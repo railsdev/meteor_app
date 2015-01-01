@@ -1,0 +1,56 @@
+<head>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+</head>
+
+<template name="layout">
+  <body style="visibility: hidden">
+    {{> header}}
+    {{> yield}}
+  </body>
+</template>
+
+
+<template name="index">
+  <div>
+          {{#each videos}}
+            <div>
+              <img src="/images/image-07.jpg" width="70" height="70">
+              <h2>Penguin Developer</h2>
+              <p style="padding-left:10px;">
+                {{ title }}
+              </p>
+            </div>
+          {{/each}}
+  </div>
+</template>
+
+<template name="header">
+    <core-header-panel>
+
+      <core-toolbar>
+        <paper-tabs id="tabs" selected="all" self-end>
+          <paper-tab name="all">All</paper-tab>
+          <paper-tab name="favorites">Favorites</paper-tab>
+        </paper-tabs>
+      </core-toolbar>
+
+      <div class="container" layout relative vertical center>
+        {{#if videos.count }}
+          {{#each videos}}
+            <post-card>
+              <img src="/images/image-07.jpg" width="70" height="70">
+              <h2>Penguin Developer</h2>
+              <p style="padding-left:10px;">
+                {{ title }}
+              </p>
+            </post-card>
+          {{/each}}
+        {{/if}}
+      </div>
+      <!-- main page content will go here -->
+
+    </core-header-panel>
+</template>
+

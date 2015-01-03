@@ -13,17 +13,6 @@
 
 
 <template name="index">
-  <div>
-          {{#each videos}}
-            <div>
-              <img src="/images/image-07.jpg" width="70" height="70">
-              <h2>Penguin Developer</h2>
-              <p style="padding-left:10px;">
-                {{ title }}
-              </p>
-            </div>
-          {{/each}}
-  </div>
 </template>
 
 <template name="header">
@@ -46,6 +35,7 @@
                 {{ title }}
               </p>
             </post-card>
+            <div>&nbsp;</div>
           {{/each}}
         {{/if}}
       </div>

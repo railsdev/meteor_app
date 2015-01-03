@@ -12,9 +12,8 @@ if (Meteor.isClient) {
   });
 
 
-  Template.body.helpers({  
+  Template.header.helpers({  
     videos: function() {
-      Meteor.log.debug("ts",Videos.find())
       return Videos.find();
     }
   });

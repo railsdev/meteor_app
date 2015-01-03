@@ -16,7 +16,7 @@ if (Meteor.isServer) {
         var _response = HTTP.get("https://www.googleapis.com/youtube/v3/playlistItems",{
           params: {
             part : 'snippet', 
-            maxResults : 20,
+            maxResults : 5,
             playlistId : pid,
             key: 'AIzaSyDy_Hslfblc3MEnwHZgfOEnCkh9MpCK7Ug'
           }
@@ -24,7 +24,8 @@ if (Meteor.isServer) {
 
         _.each(_response.data.items, function(item) {
           var doc = {
-            title: item.snippet.title
+            title: item.snippet.title,
+            vid: item.snippet.resourceId.videoId
           };
           self.added('videos', Random.id(), doc);
 

@@ -1,7 +1,7 @@
 <head>
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 </head>
 
 <template name="layout">
@@ -29,12 +29,19 @@
         {{#if videos.count }}
           {{#each videos}}
             <post-card>
-              <img src="/images/image-07.jpg" width="70" height="70">
-              <h2>Penguin Developer</h2>
-              <p style="padding-left:10px;">
-                {{ title }}
+              <p style="padding-left:10px;padding-right:10px;">
+                <google-youtube
+                  videoid="{{vid}}"
+                  height="100%"
+                  width="100%"
+                  rel="0"
+                  start="5"
+                  autoplay="0">
+                </google-youtube>
               </p>
+              <h2>{{ title }}</h2>
             </post-card>
+
             <div>&nbsp;</div>
           {{/each}}
         {{/if}}
